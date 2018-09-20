@@ -247,6 +247,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.main_fab)
     public void onFabViewClicked() {
+        loanRequestFragment.show(getSupportFragmentManager(), LoanRequestFragment.TAG);
     }
 
     @OnClick({R.id.today_card_1, R.id.today_apply_loan, R.id.today_image1})
