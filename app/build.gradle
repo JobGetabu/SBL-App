@@ -51,6 +51,9 @@ dependencies {
     //sweet alert dialogue
     implementation 'com.github.f0ris.sweetalert:library:1.5.1'
 
+    //gif support
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.15'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
