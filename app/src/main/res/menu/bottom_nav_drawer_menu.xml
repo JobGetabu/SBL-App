@@ -15,7 +15,7 @@
         android:title="@string/settings" />
 
     <item
-        android:id="@+id/nav_createnewgroup"
+        android:id="@+id/nav_paybill"
         android:icon="@drawable/ic_give_cash"
         android:tint="#161616"
         android:title="Manage Paybill" />

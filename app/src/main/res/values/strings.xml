@@ -28,5 +28,6 @@
 
     <string name="loan14d">14 days @ 6%</string>
     <string name="loan_apply_text">Loan duration: 7 days @ 4% \n Amount: Ksh 6,000 \n Interest: Ksh 240 \n Processing Charge: Ksh 23 \n Repayment Amount: 6,263 \n Due Date: 10-Oct-2018</string>
+    <string name="share_url">https://www.presta.co.ke/kopesha/</string>
 
 </resources>

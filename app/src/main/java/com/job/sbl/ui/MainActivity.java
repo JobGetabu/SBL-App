@@ -249,26 +249,42 @@ public class MainActivity extends AppCompatActivity {
     public void onFabViewClicked() {
     }
 
-    @OnClick({R.id.today_card_1,R.id.today_apply_loan,R.id.today_image1})
+    @OnClick({R.id.today_card_1, R.id.today_apply_loan, R.id.today_image1})
     public void onTodayCard1Clicked() {
 
         loanRequestFragment.show(getSupportFragmentManager(), LoanRequestFragment.TAG);
     }
 
-    @OnClick({R.id.today_card_2,R.id.today_image2,R.id.today_switch_lender})
+    @OnClick({R.id.today_card_2, R.id.today_image2, R.id.today_switch_lender})
     public void onTodayCard2Clicked() {
-        startActivity(new Intent(this,FeatureUnavailableActivity.class));
+        startActivity(new Intent(this, FeatureUnavailableActivity.class));
     }
 
-    @OnClick({R.id.today_card_3,R.id.today_image3,R.id.today_pay,R.id.today_pay_loan})
+    @OnClick({R.id.today_card_3, R.id.today_image3, R.id.today_pay, R.id.today_pay_loan})
     public void onTodayCard3Clicked() {
+        startActivity(new Intent(this, FeatureUnavailableActivity.class));
+    }
+
+    @OnClick(R.id.card_3)
+    public void onCard3Clicked() {
+        showSnackbar("Your Active loans click");
+    }
+
+    @OnClick(R.id.card_4)
+    public void onCard4Clicked() {
+        showSnackbar("Repayment period for loan");
+    }
+
+    @OnClick(R.id.user_info_img_notification)
+    public void onViewNotifClicked() {
+        startActivity(new Intent(this, FeatureUnavailableActivity.class));
     }
 
     interface OnItemCreated {
         void itemCreated(String title);
     }
 
-    private void showSnackbar(int text) {
+    private void showSnackbar(String text) {
         Snackbar.make(findViewById(android.R.id.content), text, Snackbar.LENGTH_LONG).show();
     }
 

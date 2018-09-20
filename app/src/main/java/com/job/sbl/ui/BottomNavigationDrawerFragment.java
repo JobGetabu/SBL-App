@@ -1,6 +1,7 @@
 package com.job.sbl.ui;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -64,11 +65,6 @@ public class BottomNavigationDrawerFragment extends BottomSheetDialogFragment {
                             return true;
                         case R.id.nav_logout:
                             Toast.makeText(getContext(), "Signing you out", Toast.LENGTH_SHORT).show();
-
-
-                            dismiss();
-                            return true;
-                        case R.id.nav_createnewgroup:
                             dismiss();
                             return true;
 
@@ -79,6 +75,13 @@ public class BottomNavigationDrawerFragment extends BottomSheetDialogFragment {
                             progressDialog.show();
                             progressDialog.setMessage("Just a moment...");
                             sendToInviteScreen();
+                            dismiss();
+                            return true;
+
+                        case R.id.nav_settings:
+                        case R.id.nav_bealender:
+                        case R.id.nav_paybill:
+                            startActivity(new Intent(getContext(), FeatureUnavailableActivity.class));
                             dismiss();
                             return true;
                     }
@@ -94,5 +97,12 @@ public class BottomNavigationDrawerFragment extends BottomSheetDialogFragment {
 
     private void sendToInviteScreen(){
 
+        Intent sendIntent = new Intent();
+        String msg = "Hey, check this out: " + getResources().getString(R.string.share_url);
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, msg);
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
+        progressDialog.dismiss();
     }
 }

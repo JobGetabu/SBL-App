@@ -4,6 +4,7 @@ package com.job.sbl.ui;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
@@ -95,7 +96,11 @@ public class LoanRequestFragment extends BottomSheetDialogFragment {
                             dialog.dismiss();
 
                             //processing dialogue
-                            dismiss();
+                            pDialog = new SweetAlertDialog(getContext(), SweetAlertDialog.PROGRESS_TYPE);
+                            pDialog.setCancelable(false);
+                            pDialog.setContentText("Processing Loan Request");
+                            pDialog.show();
+                            timer();
                         }
                     })
                     .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -108,6 +113,32 @@ public class LoanRequestFragment extends BottomSheetDialogFragment {
                     .show();
 
         }
+    }
+
+    private void timer(){
+        //1 minute
+        new CountDownTimer(5000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                //ticking
+            }
+
+            public void onFinish() {
+
+                pDialog.changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
+                pDialog.setCancelable(false);
+                pDialog.setTitleText("Loan Approved ");
+                pDialog.setContentText("Wait for mpesa text");
+                pDialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.dismissWithAnimation();
+                        dismiss();
+
+                    }
+                });
+            }
+        }.start();
     }
 
 
@@ -194,41 +225,6 @@ public class LoanRequestFragment extends BottomSheetDialogFragment {
         pDialog.show();
     }
 
-    /*private void simulatingMpesaTransaction() {
-        //init view-model
-        DocumentReference UserRef = mFirestore.collection("Users")
-                .document(mCurrentUser.getUid());
-
-        UserRef
-                .get()
-                .addOnCompleteListener(getActivity(), new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if (task.isSuccessful()) {
-
-                            UserBasicInfo userBasicInfo = task.getResult().toObject(UserBasicInfo.class);
-                            //we need the user name
-                            if (userBasicInfo != null) {
-                                userOnlineName = userBasicInfo.getUsername();
-
-                            }
-
-                            if (pDialog != null) {
-
-                                pDialog.changeAlertType(SweetAlertDialog.PROGRESS_TYPE);
-                                pDialog.setCancelable(false);
-                                pDialog.setTitleText("Updating account ...");
-                            }
-                        } else {
-
-                            Log.e(TAG, "Error getting documents: ", task.getException());
-                            if (pDialog != null) {
-                                pDialog.dismiss();
-                            }
-                        }
-                    }
-                });
-    }*/
 
     private boolean validateOnPay() {
 
