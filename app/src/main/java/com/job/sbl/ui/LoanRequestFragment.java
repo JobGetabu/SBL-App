@@ -4,9 +4,9 @@ package com.job.sbl.ui;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -26,9 +26,7 @@ import butterknife.OnClick;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class LoanRequestFragment extends BottomSheetDialogFragment {
 
     @BindView(R.id.pay_phonenumber)
@@ -48,11 +46,7 @@ public class LoanRequestFragment extends BottomSheetDialogFragment {
 
 
     public static final String TAG = "PayFragment";
-    private static final int PHONE_NUMBER_REQUEST_CODE = 1114;
-
     private String userOnlineName = "";
-    private String mResultPhoneNumber = "";
-
 
 
     //starter progress
@@ -90,6 +84,30 @@ public class LoanRequestFragment extends BottomSheetDialogFragment {
     @OnClick(R.id.pay_paybtn)
     public void onPayPaybtnClicked() {
 
+        if (validateOnPay()){
+
+            new AlertDialog.Builder(getContext())
+                    .setTitle("Confirm Loan Application")
+                    .setCancelable(true)
+                    .setMessage(R.string.loan_apply_text)
+                    .setPositiveButton("Get Loan", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            dialog.dismiss();
+
+                            //processing dialogue
+                            dismiss();
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+
+                        }
+                    })
+                    .show();
+
+        }
     }
 
 
@@ -236,6 +254,23 @@ public class LoanRequestFragment extends BottomSheetDialogFragment {
         if (!am.isEmpty()) {
             if (Double.parseDouble(am) < 10) {
                 payAmountinput.setError("Amount must be greater than 10");
+
+                payTextamount.setVisibility(View.GONE);
+                editImagbtn.setVisibility(View.GONE);
+                payAmountinput.setVisibility(View.VISIBLE);
+
+                valid = false;
+            } else {
+                payTextamount.setVisibility(View.VISIBLE);
+                editImagbtn.setVisibility(View.VISIBLE);
+                payAmountinput.setVisibility(View.GONE);
+                payAmountinput.setError(null);
+            }
+        }
+
+        if (!am.isEmpty()) {
+            if (Double.parseDouble(am) > 6000) {
+                payAmountinput.setError("Amount must be less than 6000");
 
                 payTextamount.setVisibility(View.GONE);
                 editImagbtn.setVisibility(View.GONE);

@@ -1,17 +1,12 @@
 <resources>
-    <string name="app_name">SBL</string>
+    <string name="app_name">Small Biz Loans</string>
     <string name="dashboard">Dashboard</string>
     <string name="enter_title">Enter Title</string>
     <string name="nav_item1">Home</string>
     <string name="home">Home</string>
     <string name="settings">Settings</string>
     <string name="logout">Logout</string>
-    <string name="allgrouptrans">All Group Transactions</string>
-    <string name="add_member_contribution">Add Member Contribution</string>
-    <string name="add_member_fine">Add Member Fine</string>
-    <string name="add_project">Add Project</string>
-    <string name="create_new_chama_group">Create new chama group</string>
-    <string name="creating_new_chama_group">Creating a new chama group</string>
+
     <string name="add_payment">Add Payment</string>
     <string name="invite_a_member">Share with friends</string>
     <string name="regular_contribution">Regular Contribution</string>
@@ -25,77 +20,13 @@
     <string name="sign_in_cancelled">Sign in Cancelled</string>
     <string name="no_internet_connection">No internet Connection</string>
     <string name="unknown_error">Unknown Error</string>
-    <string name="chama_create_txt">Chama Table Banking helps you easily create, track and manage your chama finances</string>
-    <string name="chama_name">Chama Name</string>
-    <string name="minimum_entry_fee_ksh">Minimum Entry Fee (Ksh)</string>
-    <string name="regular_contribution_minimum_amount_ksh">Regular Contribution minimum amount (Ksh)</string>
-    <string name="regular_contribution_time">Regular Contribution Time</string>
-    <string name="day_of_the_month">Day of the Month</string>
-    <string name="day_of_the_week">Day of the Week</string>
+
     <string name="error_occured">Error Occurred</string>
     <string name="dialog_loading_group">loading your group</string>
     <string name="not_in_agroup">You\'re not in a Group</string>
     <string name="kes_0">KES 0/-</string>
-    <!--App normal invitation-->
-    <string name="app_code">https://chamatablebanking.page.link</string>
-    <string name="invitation_title">Join Chama table banking</string>
-    <string name="invitation_message">Manage and control all your chama activities from your phone</string>
-    <string name="invitation_deep_link">https://chamatablebanking.page.link/gr</string>
-    <string name="invitation_custom_image">https://user-images.githubusercontent.com/22516895/40451662-fe4f8628-5ee7-11e8-8277-befddbe23201.png</string>
-    <string name="invitation_cta">Join</string>
 
-
-    <!-- Chama roles -->
-    <string-array name="chamaroles">
-        <item>Admin:ChairPerson</item>
-        <item>Admin:Secretary</item>
-        <item>Admin:Treasurer</item>
-    </string-array>
-
-    <!-- Chama cycles -->
-    <string-array name="meetingcyles">
-        <item>Once a Month</item>
-        <item>Once a Week</item>
-    </string-array>
-
-    <string-array name="monthcyles">
-        <item>Sunday of the Month</item>
-        <item>Monday of the Month</item>
-        <item>Tuesday of the Month</item>
-        <item>Wednesday of the Month</item>
-        <item>Thursday of the Month</item>
-        <item>Friday of the Month</item>
-        <item>Saturday of the Month</item>
-    </string-array>
-
-    <string-array name="weekcyles">
-        <item>Sunday of the Week</item>
-        <item>Monday of the Week</item>
-        <item>Tuesday of the Week</item>
-        <item>Wednesday of the Week</item>
-        <item>Thursday of the Week</item>
-        <item>Friday of the Week</item>
-        <item>Saturday of the Week</item>
-    </string-array>
-
-    <!-- Step Titles -->
-    <string-array name="steps_titles">
-        <item>Create new chama</item>
-        <item>Chama name</item>
-        <item>Upload a picture(optional)</item>
-        <item>Select your role</item>
-        <item>Chama Entry Fee (Non Refundable)</item>
-        <item>Regular Meeting &amp; Contribution</item>
-    </string-array>
-
-    <!-- Step subTitles -->
-    <string-array name="steps_subtitles">
-        <item>Follow steps to form a chama</item>
-        <item>This is the name of your chama</item>
-        <item>Select chama picture (optional)</item>
-        <item>Only admins can create chamas</item>
-        <item>Minimum required for new members to join</item>
-        <item>Regular Contribution in meetings</item>
-    </string-array>
+    <string name="loan14d">14 days @ 6%</string>
+    <string name="loan_apply_text">Loan duration: 7 days @ 4% \n Amount: Ksh 6,000 \n Interest: Ksh 240 \n Processing Charge: Ksh 23 \n Repayment Amount: 6,263 \n Due Date: 10-Oct-2018</string>
 
 </resources>

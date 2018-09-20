@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     CircleImageView userInfoImage;
     @BindView(R.id.user_info_img_notification)
     ImageButton userInfoImgNotification;
+
     @BindView(R.id.today_image1)
     ImageView todayImage1;
     @BindView(R.id.today_apply_loan)
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
     private ExpandingList mExpandingList;
+    private LoanRequestFragment loanRequestFragment;
 
 
     @Override
@@ -81,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         //read db data
         mExpandingList = findViewById(R.id.expanding_list_main);
         createItems();
+        loanRequestFragment = new LoanRequestFragment();
     }
 
     @Override
@@ -245,12 +248,18 @@ public class MainActivity extends AppCompatActivity {
     public void onFabViewClicked() {
     }
 
-    @OnClick(R.id.today_card_1)
+    @OnClick({R.id.today_card_1,R.id.today_apply_loan,R.id.today_image1})
     public void onTodayCard1Clicked() {
+
+        loanRequestFragment.show(getSupportFragmentManager(), LoanRequestFragment.TAG);
     }
 
-    @OnClick(R.id.today_card_2)
+    @OnClick({R.id.today_card_2,R.id.today_image2,R.id.today_switch_lender})
     public void onTodayCard2Clicked() {
+    }
+
+    @OnClick({R.id.today_card_3,R.id.today_image3,R.id.today_pay,R.id.today_pay_loan})
+    public void onTodayCard3Clicked() {
     }
 
     interface OnItemCreated {

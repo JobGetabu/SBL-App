@@ -2,15 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_sdbjldv"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="fill_vertical"
-    android:orientation="vertical"
-    android:id="@+id/main_sdbjldv"
-    app:behavior_hideable="true"
     android:cursorVisible="false"
-    app:layout_behavior="@string/bottom_sheet_behavior"
-    >
+    android:orientation="vertical"
+    app:behavior_hideable="true"
+    app:layout_behavior="@string/bottom_sheet_behavior">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,10 +20,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Add Funds"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:text="Apply Loan (max Ksh 6,000)"
             android:textAlignment="center"
             android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="@color/payGreen"
             android:textSize="16sp" />
     </LinearLayout>
@@ -59,10 +58,10 @@
             android:id="@+id/textView6pay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="16dp"
+            android:layout_alignParentTop="true"
             android:layout_below="@+id/textView3"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="52dp"
             android:paddingRight="16dp"
             android:text="Lender: " />
@@ -97,12 +96,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:padding="16dp"
-                    tools:text="KES 1,000/-"
                     android:text="@string/kes_0"
                     android:textAlignment="center"
                     android:textColor="@color/colorAccent"
                     android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:text="KES 1,000/-" />
 
                 <ImageButton
                     android:id="@+id/pay_editImg"
@@ -141,37 +140,112 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="Pay Via"
+        android:text="Select duration"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 
-    <android.support.design.chip.Chip
-        android:id="@+id/kngdpay"
-        style="@style/Widget.MaterialComponents.Chip.Choice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="0dp"
-        android:textAppearance="@style/ChipsBaseText2"
-        app:chipBackgroundColor="@android:color/white"
-        app:chipCornerRadius="8dp"
-        app:chipSpacingVertical="4dp"
-        app:chipStrokeColor="@android:color/darker_gray"
-        app:chipStrokeWidth="2dp"
-        app:chipText="Mpesa" />
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <android.support.design.button.MaterialButton
-            android:id="@+id/pay_paybtn"
-            style="@style/Widget.MaterialComponents.Button"
+        <android.support.design.chip.ChipGroup
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|fill"
-            android:text="Continue"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:tint="@color/payGreen"
-            app:cornerRadius="2dp" />
+            android:layout_height="match_parent"
+
+            >
+            <android.support.design.chip.Chip
+                android:id="@+id/kngdpay"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:textAppearance="@style/ChipsBaseText2"
+                app:chipBackgroundColor="@android:color/white"
+                app:chipCornerRadius="8dp"
+                app:chipSpacingVertical="4dp"
+                app:chipStrokeColor="@android:color/darker_gray"
+                app:chipStrokeWidth="2dp"
+                app:chipText="7 days @ 4%" />
+
+            <android.support.design.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:textAppearance="@style/ChipsBaseText2"
+                app:chipBackgroundColor="@android:color/white"
+                app:chipCornerRadius="8dp"
+                app:chipSpacingVertical="4dp"
+                app:chipStrokeColor="@android:color/darker_gray"
+                app:chipStrokeWidth="2dp"
+                app:chipText="@string/loan14d" />
+
+            <android.support.design.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:textAppearance="@style/ChipsBaseText2"
+                app:chipBackgroundColor="@android:color/white"
+                app:chipCornerRadius="8dp"
+                app:chipSpacingVertical="4dp"
+                app:chipStrokeColor="@android:color/darker_gray"
+                app:chipStrokeWidth="2dp"
+                app:chipText="@string/loan14d" />
+
+            <android.support.design.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:textAppearance="@style/ChipsBaseText2"
+                app:chipBackgroundColor="@android:color/white"
+                app:chipCornerRadius="8dp"
+                app:chipSpacingVertical="4dp"
+                app:chipStrokeColor="@android:color/darker_gray"
+                app:chipStrokeWidth="2dp"
+                app:chipText="21 days @ 8%" />
+
+            <android.support.design.chip.Chip
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:textAppearance="@style/ChipsBaseText2"
+                app:chipBackgroundColor="@android:color/white"
+                app:chipCornerRadius="8dp"
+                app:chipSpacingVertical="4dp"
+                app:chipStrokeColor="@android:color/darker_gray"
+                app:chipStrokeWidth="2dp"
+                app:chipText="1 month @ 10%" />
+        </android.support.design.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <android.support.design.button.MaterialButton
+        android:id="@+id/pay_paybtn"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|fill"
+        android:text="Continue"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:tint="@color/payGreen"
+        app:cornerRadius="2dp" />
 </LinearLayout>
