@@ -2,6 +2,7 @@ package com.job.sbl.ui;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.bottomappbar.BottomAppBar;
 import android.support.design.card.MaterialCardView;
@@ -256,6 +257,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick({R.id.today_card_2,R.id.today_image2,R.id.today_switch_lender})
     public void onTodayCard2Clicked() {
+        startActivity(new Intent(this,FeatureUnavailableActivity.class));
     }
 
     @OnClick({R.id.today_card_3,R.id.today_image3,R.id.today_pay,R.id.today_pay_loan})
