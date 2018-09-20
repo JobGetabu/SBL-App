@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.bottomappbar.BottomAppBar;
+import android.support.design.card.MaterialCardView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.diegodobelo.expandingview.ExpandingItem;
@@ -28,8 +30,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Choose an arbitrary request code value
-    private static final int RC_SIGN_IN = 123;
     private static final String TAG = "MainA";
 
     @BindView(R.id.main_bar)
@@ -46,16 +46,24 @@ public class MainActivity extends AppCompatActivity {
     CircleImageView userInfoImage;
     @BindView(R.id.user_info_img_notification)
     ImageButton userInfoImgNotification;
-    @BindView(R.id.admin_d_balance)
-    TextView adminDBalance;
-    @BindView(R.id.admin_d_num_members)
-    TextView adminDNumMembers;
-    @BindView(R.id.admin_d_account_status)
-    TextView adminDAccountStatus;
-    @BindView(R.id.admin_d_groupnum_loans)
-    TextView adminDGroupnumLoans;
-    @BindView(R.id.admin_d_days_left)
-    TextView adminDDaysLeft;
+    @BindView(R.id.today_image1)
+    ImageView todayImage1;
+    @BindView(R.id.today_apply_loan)
+    TextView todayApplyLoan;
+    @BindView(R.id.today_card_1)
+    MaterialCardView todayCard1;
+    @BindView(R.id.today_image2)
+    ImageView todayImage2;
+    @BindView(R.id.today_switch_lender)
+    TextView todaySwitchLender;
+    @BindView(R.id.today_card_2)
+    MaterialCardView todayCard2;
+    @BindView(R.id.today_image3)
+    ImageView todayImage3;
+    @BindView(R.id.today_pay)
+    TextView todayPay;
+    @BindView(R.id.today_pay_loan)
+    TextView todayPayLoan;
 
 
     private ProgressDialog progressDialog;
@@ -73,13 +81,6 @@ public class MainActivity extends AppCompatActivity {
         //read db data
         mExpandingList = findViewById(R.id.expanding_list_main);
         createItems();
-    }
-
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
     }
 
     @Override
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void createItems() {
         addItem("Payments", new String[]{"Loan Repayment", "Loan Repayment", "Loan Repayment", "Loan Repayment", "Loan Repayment", "Loan Repayment", "Loan Repayment"}, R.color.greenb3, R.drawable.profit_bg);
-        addItem("Loans", new String[]{"Loan Request", "Loan Request", "Loan Request"}, R.color.greenb, R.drawable.loan_bg);
+        //addItem(true,"Loans", new String[]{"Loan Request", "Loan Request", "Loan Request"}, R.color.greenb, R.drawable.loan_bg);
         addItem("Lenders", new String[]{"Mavuno Self Help Group", "Cooperative Chama", "Taifa Sacco"}, R.color.purpleb, R.drawable.proj_bg);
 
     }
@@ -173,8 +174,9 @@ public class MainActivity extends AppCompatActivity {
                 //Let's get the created sub item by its index
                 final View view = item.getSubItemView(i);
 
+
                 //Let's set some values in
-                configureSubItem(true,item, view, subItems[i]);
+                configureSubItem(true, item, view, subItems[i]);
             }
         }
     }
@@ -208,12 +210,13 @@ public class MainActivity extends AppCompatActivity {
         int c = random.nextInt(10);
         int d = random.nextInt(10);
 
-        ((TextView) view.findViewById(R.id.e_gs_details)).setText(subTitle);
-        ((TextView) view.findViewById(R.id.e_gs_date)).setText(c + "/08/2018");
+        ((TextView) view.findViewById(R.id.l_sub_details)).setText(subTitle);
+        ((TextView) view.findViewById(R.id.l_sub_lender)).setText("Mavuno Self Help Group");
+        ((TextView) view.findViewById(R.id.l_sub_date)).setText(c + "/08/2018");
 
         String cash = "+ Ksh" + a + "," + b + c + d;
 
-        ((TextView) view.findViewById(R.id.e_gs_money)).setText(cash);
+        ((TextView) view.findViewById(R.id.l_sub_cash)).setText(cash);
 
        /* view.findViewById(R.id.remove_sub_item).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -242,11 +245,17 @@ public class MainActivity extends AppCompatActivity {
     public void onFabViewClicked() {
     }
 
+    @OnClick(R.id.today_card_1)
+    public void onTodayCard1Clicked() {
+    }
+
+    @OnClick(R.id.today_card_2)
+    public void onTodayCard2Clicked() {
+    }
+
     interface OnItemCreated {
         void itemCreated(String title);
     }
-
-
 
     private void showSnackbar(int text) {
         Snackbar.make(findViewById(android.R.id.content), text, Snackbar.LENGTH_LONG).show();

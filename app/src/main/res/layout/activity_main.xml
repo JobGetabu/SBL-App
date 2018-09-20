@@ -57,7 +57,7 @@
         android:layout_gravity="bottom"
         app:backgroundTint="@color/colorwhitish"
         app:fabAlignmentMode="center"
-        app:fabAttached="false"
+        app:fabAttached="true"
         app:navigationIcon="@drawable/ic_menu"
         app:layout_scrollFlags="scroll|enterAlways"
         />
@@ -67,7 +67,7 @@
         style="@style/Widget.MaterialComponents.FloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         app:fabSize="mini"
         app:layout_anchor="@id/main_bar"
         app:srcCompat="@drawable/ic_add" />

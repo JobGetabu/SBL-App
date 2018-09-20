@@ -16,6 +16,9 @@
     <color name="purpleb">#8F65FF</color>
     <color name="pinkb">#F94094</color>
 
+    <color name="payGreen">#009688</color>
+    <color name="pay_bg">#E0E0E0</color>
+
     <color name="colorBackground">#241445</color>
     <color name="separatorColor">#18102C</color>
 
